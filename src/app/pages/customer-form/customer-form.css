@@ -1,0 +1,297 @@
+.jewelry-boxes-container {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #dee2e6;
+  overflow-x: auto;
+}
+
+.boxes-wrapper {
+  gap: 0;
+  flex-wrap: nowrap;
+  padding-bottom: 0.5rem;
+}
+
+.jewelry-box {
+  min-width: 120px;
+  background: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  margin-right: -2px;
+}
+
+.jewelry-box:first-child {
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.jewelry-box:last-child {
+  border-radius: 0 0.375rem 0.375rem 0;
+  margin-right: 0;
+}
+
+.jewelry-box:only-child {
+  border-radius: 0.375rem;
+}
+
+.add-new-box {
+  background: #e3f2fd;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.carat-label {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  min-height: 24px;
+}
+
+.carat-text {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.carat-input {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.25rem;
+  height: auto;
+  font-weight: 600;
+}
+
+.price-section {
+  flex: 1;
+}
+
+.price-input {
+  text-align: center;
+  font-weight: 500;
+}
+
+.add-box-btn {
+  border: none;
+  background: transparent;
+  color: #2196f3;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  height: 100%;
+  min-height: 80px;
+}
+
+.add-box-btn i {
+  font-size: 1.5rem;
+}
+
+.add-box-btn span {
+  font-size: 0.8rem;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-color: #dc3545;
+  z-index: 2;
+}
+
+.remove-btn:hover {
+  background: #dc3545;
+  color: white;
+}
+
+.jewelry-box:focus-within {
+  border-color: #0056b3;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  z-index: 1;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  min-width: 200px;
+}
+
+/* Item Name */
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  min-width: 120px;
+}
+
+/* Item Code */
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  min-width: 80px;
+}
+
+/* Size */
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  min-width: 120px;
+}
+
+/* Carat/Purity */
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  min-width: 100px;
+}
+
+/* Color */
+.table th:nth-child(6),
+.table td:nth-child(6) {
+  min-width: 100px;
+}
+
+/* Weight */
+.table th:nth-child(7),
+.table td:nth-child(7) {
+  min-width: 200px;
+}
+
+/* Worker Name */
+.table th:nth-child(8),
+.table td:nth-child(8) {
+  min-width: 200px;
+}
+
+/* Worker Issue Date */
+.table th:nth-child(9),
+.table td:nth-child(9) {
+  min-width: 120px;
+}
+
+/* Order Status */
+.table th:nth-child(10),
+.table td:nth-child(10) {
+  min-width: 200px;
+}
+
+/* Worker Receive Date */
+.table th:nth-child(11),
+.table td:nth-child(11) {
+  min-width: 200px;
+}
+
+/* Customer Delivery Date */
+.table th:nth-child(12),
+.table td:nth-child(12) {
+  min-width: 120px;
+}
+
+/* Note */
+.table th:nth-child(13),
+.table td:nth-child(13) {
+  min-width: 200px;
+}
+
+/* New Item Tag */
+.table th:nth-child(14),
+.table td:nth-child(14) {
+  min-width: 80px;
+}
+
+/* Actions */
+
+.items-table .form-control-sm,
+.items-table .form-select-sm {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  min-height: 30px;
+}
+
+.items-table textarea.form-control-sm {
+  resize: vertical;
+  min-height: 30px;
+}
+
+.items-table .form-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30px;
+}
+
+.items-table .form-check-input {
+  margin: 0;
+}
+
+.items-table .btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.items-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: var(--bs-primary);
+  color: white;
+  z-index: 10;
+}
+
+.items-table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.items-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.items-table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.items-table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.add-item-container {
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .boxes-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .jewelry-box {
+    margin-right: 0;
+    margin-bottom: -2px;
+    border-radius: 0;
+  }
+
+  .jewelry-box:first-child {
+    border-radius: 0.375rem 0.375rem 0 0;
+  }
+
+  .jewelry-box:last-child {
+    border-radius: 0 0 0.375rem 0.375rem;
+    margin-bottom: 0;
+  }
+
+  .items-table {
+    min-width: 1200px;
+  }
+
+  .items-table th,
+  .items-table td {
+    min-width: 100px;
+    padding: 0.375rem 0.25rem;
+  }
+}

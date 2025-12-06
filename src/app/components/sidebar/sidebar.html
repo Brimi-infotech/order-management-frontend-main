@@ -1,0 +1,31 @@
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    @if (user?.role === 'staff') {
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/oms/customers-form']">
+          <i class="bi bi-grid"></i>
+          <span>Customers</span>
+        </a>
+      </li>
+    } @else {
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/oms/dashboard']">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/oms/staff']">
+          <i class="bi bi-grid"></i>
+          <span>Staffs</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/oms/items']">
+          <i class="bi bi-grid"></i>
+          <span>Items</span>
+        </a>
+      </li>
+    }
+  </ul>
+</aside>

@@ -1,0 +1,265 @@
+[
+  {
+    "orderId": "1",
+    "receiveDate": { "$date": "2025-09-10T10:00:00.000Z" },
+    "name": "John Doe",
+    "mobile": "9876543210",
+    "address": "123 Main St",
+    "deliveryDate": { "$date": "2025-09-20T10:00:00.000Z" },
+    "staffCode": "ST1",
+    "carateBoxes": [
+      { "id": 1, "carat": "18K", "type": "Gold", "price": 5000, "itemCode": "I101", "itemName": "Diamond ring", "size": "M" }
+    ],
+    "items": [
+      { "itemName": "Diamond ring", "itemCode": "I101", "size": "M", "caratPurity": "18K", "color": "Yellow", "weight": 5, "workerName": "staff 2", "workerIssueDate": { "$date": "2025-09-11T10:00:00.000Z" }, "orderStatus": "Pending" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 10000,
+    "advances": [{ "amount": 2000, "date": { "$date": "2025-09-12T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "2",
+    "receiveDate": { "$date": "2025-09-11T10:00:00.000Z" },
+    "name": "Jane Smith",
+    "mobile": "9123456780",
+    "address": "456 Elm St",
+    "deliveryDate": { "$date": "2025-09-21T10:00:00.000Z" },
+    "staffCode": "ST2",
+    "carateBoxes": [
+      { "id": 2, "carat": "22K", "type": "Gold", "price": 8000, "itemCode": "i102", "itemName": "demo", "size": "L" }
+    ],
+    "items": [
+      { "itemName": "demo", "itemCode": "i102", "size": "L", "caratPurity": "22K", "color": "White", "weight": 15, "workerName": "staff 1", "workerIssueDate": { "$date": "2025-09-12T10:00:00.000Z" }, "orderStatus": "In Progress" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 3000, "date": { "$date": "2025-09-13T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "3",
+    "receiveDate": { "$date": "2025-09-12T10:00:00.000Z" },
+    "name": "Alice Johnson",
+    "mobile": "9988776655",
+    "address": "789 Oak St",
+    "deliveryDate": { "$date": "2025-09-22T10:00:00.000Z" },
+    "staffCode": "ST3",
+    "carateBoxes": [
+      { "id": 3, "carat": "14K", "type": "Gold", "price": 3000, "itemCode": "I103", "itemName": "Item 3", "size": "S" }
+    ],
+    "items": [
+      { "itemName": "Item 3", "itemCode": "I103", "size": "S", "caratPurity": "14K", "color": "Rose", "weight": 7, "workerName": "staff 5", "workerIssueDate": { "$date": "2025-09-13T10:00:00.000Z" }, "orderStatus": "Done" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 7000,
+    "advances": [{ "amount": 1000, "date": { "$date": "2025-09-14T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "4",
+    "receiveDate": { "$date": "2025-09-13T10:00:00.000Z" },
+    "name": "Bob Brown",
+    "mobile": "9090909090",
+    "address": "321 Pine St",
+    "deliveryDate": { "$date": "2025-09-23T10:00:00.000Z" },
+    "staffCode": "ST4",
+    "carateBoxes": [
+      { "id": 4, "carat": "18K", "type": "Gold", "price": 6000, "itemCode": "i104", "itemName": "item 4", "size": "XS" }
+    ],
+    "items": [
+      { "itemName": "item 4", "itemCode": "i104", "size": "XS", "caratPurity": "18K", "color": "Yellow", "weight": 3, "workerName": "staff 3", "workerIssueDate": { "$date": "2025-09-14T10:00:00.000Z" }, "orderStatus": "Emergency" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 500, "date": { "$date": "2025-09-15T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "5",
+    "receiveDate": { "$date": "2025-09-14T10:00:00.000Z" },
+    "name": "Charlie Davis",
+    "mobile": "8888888888",
+    "address": "654 Cedar St",
+    "deliveryDate": { "$date": "2025-09-24T10:00:00.000Z" },
+    "staffCode": "ST5",
+    "carateBoxes": [
+      { "id": 5, "carat": "22K", "type": "Gold", "price": 9000, "itemCode": "I101", "itemName": "Diamond ring", "size": "M" }
+    ],
+    "items": [
+      { "itemName": "Diamond ring", "itemCode": "I101", "size": "M", "caratPurity": "22K", "color": "White", "weight": 8, "workerName": "staff 2", "workerIssueDate": { "$date": "2025-09-15T10:00:00.000Z" }, "orderStatus": "Pending" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 12000,
+    "advances": [{ "amount": 4000, "date": { "$date": "2025-09-16T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "6",
+    "receiveDate": { "$date": "2025-09-15T10:00:00.000Z" },
+    "name": "Diana Evans",
+    "mobile": "7777777777",
+    "address": "987 Maple St",
+    "deliveryDate": { "$date": "2025-09-25T10:00:00.000Z" },
+    "staffCode": "ST1",
+    "carateBoxes": [
+      { "id": 6, "carat": "14K", "type": "Gold", "price": 2500, "itemCode": "i102", "itemName": "demo", "size": "L" }
+    ],
+    "items": [
+      { "itemName": "demo", "itemCode": "i102", "size": "L", "caratPurity": "14K", "color": "Rose", "weight": 12, "workerName": "staff 1", "workerIssueDate": { "$date": "2025-09-16T10:00:00.000Z" }, "orderStatus": "Done" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 1500, "date": { "$date": "2025-09-17T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "7",
+    "receiveDate": { "$date": "2025-09-16T10:00:00.000Z" },
+    "name": "Eva Green",
+    "mobile": "9999999999",
+    "address": "111 Birch St",
+    "deliveryDate": { "$date": "2025-09-26T10:00:00.000Z" },
+    "staffCode": "ST2",
+    "carateBoxes": [
+      { "id": 7, "carat": "18K", "type": "Gold", "price": 5200, "itemCode": "I103", "itemName": "Item 3", "size": "S" }
+    ],
+    "items": [
+      { "itemName": "Item 3", "itemCode": "I103", "size": "S", "caratPurity": "18K", "color": "Yellow", "weight": 6, "workerName": "staff 5", "workerIssueDate": { "$date": "2025-09-17T10:00:00.000Z" }, "orderStatus": "Pending" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 11000,
+    "advances": [{ "amount": 2500, "date": { "$date": "2025-09-18T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "8",
+    "receiveDate": { "$date": "2025-09-17T10:00:00.000Z" },
+    "name": "Frank Hall",
+    "mobile": "8888777766",
+    "address": "222 Spruce St",
+    "deliveryDate": { "$date": "2025-09-27T10:00:00.000Z" },
+    "staffCode": "ST3",
+    "carateBoxes": [
+      { "id": 8, "carat": "22K", "type": "Gold", "price": 8300, "itemCode": "i104", "itemName": "item 4", "size": "XS" }
+    ],
+    "items": [
+      { "itemName": "item 4", "itemCode": "i104", "size": "XS", "caratPurity": "22K", "color": "White", "weight": 9, "workerName": "staff 3", "workerIssueDate": { "$date": "2025-09-18T10:00:00.000Z" }, "orderStatus": "In Progress" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 3500, "date": { "$date": "2025-09-19T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "9",
+    "receiveDate": { "$date": "2025-09-18T10:00:00.000Z" },
+    "name": "Grace Lee",
+    "mobile": "7777666655",
+    "address": "333 Willow St",
+    "deliveryDate": { "$date": "2025-09-28T10:00:00.000Z" },
+    "staffCode": "ST4",
+    "carateBoxes": [
+      { "id": 9, "carat": "14K", "type": "Gold", "price": 3100, "itemCode": "I101", "itemName": "Diamond ring", "size": "M" }
+    ],
+    "items": [
+      { "itemName": "Diamond ring", "itemCode": "I101", "size": "M", "caratPurity": "14K", "color": "Rose", "weight": 10, "workerName": "staff 2", "workerIssueDate": { "$date": "2025-09-19T10:00:00.000Z" }, "orderStatus": "Done" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 9000,
+    "advances": [{ "amount": 1800, "date": { "$date": "2025-09-20T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "10",
+    "receiveDate": { "$date": "2025-09-19T10:00:00.000Z" },
+    "name": "Henry King",
+    "mobile": "6666555544",
+    "address": "444 Aspen St",
+    "deliveryDate": { "$date": "2025-09-29T10:00:00.000Z" },
+    "staffCode": "ST5",
+    "carateBoxes": [
+      { "id": 10, "carat": "18K", "type": "Gold", "price": 5400, "itemCode": "i102", "itemName": "demo", "size": "L" }
+    ],
+    "items": [
+      { "itemName": "demo", "itemCode": "i102", "size": "L", "caratPurity": "18K", "color": "Yellow", "weight": 11, "workerName": "staff 1", "workerIssueDate": { "$date": "2025-09-20T10:00:00.000Z" }, "orderStatus": "Emergency" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 2200, "date": { "$date": "2025-09-21T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "11",
+    "receiveDate": { "$date": "2025-09-20T10:00:00.000Z" },
+    "name": "Ivy Moore",
+    "mobile": "5555444433",
+    "address": "555 Poplar St",
+    "deliveryDate": { "$date": "2025-09-30T10:00:00.000Z" },
+    "staffCode": "ST1",
+    "carateBoxes": [
+      { "id": 11, "carat": "22K", "type": "Gold", "price": 8500, "itemCode": "I103", "itemName": "Item 3", "size": "S" }
+    ],
+    "items": [
+      { "itemName": "Item 3", "itemCode": "I103", "size": "S", "caratPurity": "22K", "color": "White", "weight": 13, "workerName": "staff 5", "workerIssueDate": { "$date": "2025-09-21T10:00:00.000Z" }, "orderStatus": "Pending" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 13000,
+    "advances": [{ "amount": 2600, "date": { "$date": "2025-09-22T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "12",
+    "receiveDate": { "$date": "2025-09-21T10:00:00.000Z" },
+    "name": "Jack Nolan",
+    "mobile": "4444333322",
+    "address": "666 Chestnut St",
+    "deliveryDate": { "$date": "2025-10-01T10:00:00.000Z" },
+    "staffCode": "ST2",
+    "carateBoxes": [
+      { "id": 12, "carat": "14K", "type": "Gold", "price": 3200, "itemCode": "i104", "itemName": "item 4", "size": "XS" }
+    ],
+    "items": [
+      { "itemName": "item 4", "itemCode": "i104", "size": "XS", "caratPurity": "14K", "color": "Rose", "weight": 14, "workerName": "staff 3", "workerIssueDate": { "$date": "2025-09-22T10:00:00.000Z" }, "orderStatus": "Done" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 2800, "date": { "$date": "2025-09-23T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "13",
+    "receiveDate": { "$date": "2025-09-22T10:00:00.000Z" },
+    "name": "Karen Owens",
+    "mobile": "3333222211",
+    "address": "777 Walnut St",
+    "deliveryDate": { "$date": "2025-10-02T10:00:00.000Z" },
+    "staffCode": "ST3",
+    "carateBoxes": [
+      { "id": 13, "carat": "18K", "type": "Gold", "price": 5600, "itemCode": "I101", "itemName": "Diamond ring", "size": "M" }
+    ],
+    "items": [
+      { "itemName": "Diamond ring", "itemCode": "I101", "size": "M", "caratPurity": "18K", "color": "Yellow", "weight": 15, "workerName": "staff 2", "workerIssueDate": { "$date": "2025-09-23T10:00:00.000Z" }, "orderStatus": "In Progress" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 14000,
+    "advances": [{ "amount": 3000, "date": { "$date": "2025-09-24T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "14",
+    "receiveDate": { "$date": "2025-09-23T10:00:00.000Z" },
+    "name": "Leo Parker",
+    "mobile": "2222111100",
+    "address": "888 Sycamore St",
+    "deliveryDate": { "$date": "2025-10-03T10:00:00.000Z" },
+    "staffCode": "ST4",
+    "carateBoxes": [
+      { "id": 14, "carat": "22K", "type": "Gold", "price": 8700, "itemCode": "i102", "itemName": "demo", "size": "L" }
+    ],
+    "items": [
+      { "itemName": "demo", "itemCode": "i102", "size": "L", "caratPurity": "22K", "color": "White", "weight": 16, "workerName": "staff 1", "workerIssueDate": { "$date": "2025-09-24T10:00:00.000Z" }, "orderStatus": "Pending" }
+    ],
+    "rateFixed": "notfixed",
+    "advances": [{ "amount": 3200, "date": { "$date": "2025-09-25T10:00:00.000Z" } }]
+  },
+  {
+    "orderId": "15",
+    "receiveDate": { "$date": "2025-09-24T10:00:00.000Z" },
+    "name": "Mona Quinn",
+    "mobile": "1111000099",
+    "address": "999 Redwood St",
+    "deliveryDate": { "$date": "2025-10-04T10:00:00.000Z" },
+    "staffCode": "ST5",
+    "carateBoxes": [
+      { "id": 15, "carat": "14K", "type": "Gold", "price": 3300, "itemCode": "I103", "itemName": "Item 3", "size": "S" }
+    ],
+    "items": [
+      { "itemName": "Item 3", "itemCode": "I103", "size": "S", "caratPurity": "14K", "color": "Rose", "weight": 17, "workerName": "staff 5", "workerIssueDate": { "$date": "2025-09-25T10:00:00.000Z" }, "orderStatus": "Done" }
+    ],
+    "rateFixed": "fixed",
+    "fixedPrice": 15000,
+    "advances": [{ "amount": 3400, "date": { "$date": "2025-09-26T10:00:00.000Z" } }]
+  }
+]

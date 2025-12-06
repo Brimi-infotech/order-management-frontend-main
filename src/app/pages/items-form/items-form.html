@@ -1,0 +1,50 @@
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card shadow-lg">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="bi bi-box-seam me-2"></i>{{ getPrefix() }} Item
+          </h5>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="itemsForm" (ngSubmit)="formSubmit()">
+
+            <div class="mb-4">
+              <div class="card border-light">
+                <div class="card-body bg-light">
+                  <div class="row g-3">
+                    <div class="col-md-6 col-sm-12">
+                      <label for="inputItemCode" class="form-label fw-bold">Item Code</label>
+                      <input type="text" class="form-control" id="inputItemCode"
+                        formControlName="itemcode" required />
+                      @if (itemsForm.get('itemcode')?.invalid && itemsForm.get('itemcode')?.touched) {
+                      <div class="text-danger small mt-1">Item Code is required.</div>
+                      }
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                      <label for="inputName" class="form-label fw-bold">Name</label>
+                      <input type="text" class="form-control" id="inputName" formControlName="name"
+                        required />
+                      @if (itemsForm.get('name')?.invalid && itemsForm.get('name')?.touched) {
+                      <div class="text-danger small mt-1">Name is required.</div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-grid gap-2 col-2 mx-auto">
+              <button type="submit" class="btn btn-primary" [disabled]="itemsForm.invalid">
+                <i class="bi bi-check-circle me-2"></i>{{ getPrefix() }} Item
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

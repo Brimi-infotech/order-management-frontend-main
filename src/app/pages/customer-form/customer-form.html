@@ -1,0 +1,770 @@
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card shadow-lg">
+        <div class="card-body p-4">
+          <form #customerFormRef="ngForm" appEnterNav>
+            <div class="mb-4">
+              <div class="row g-3">
+                <div class="col-md-1">
+                  <label class="form-label fw-bold">Order ID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="orderId"
+                    [(ngModel)]="customerForm.orderId"
+                    readonly
+                    required
+                    #orderId="ngModel"
+                  />
+                  @if (orderId.invalid && (orderId.dirty || orderId.touched || isSubmitted)) {
+                  <div class="text-danger small mt-1">Order ID is required.</div>
+                  }
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label fw-bold">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    [(ngModel)]="customerForm.name"
+                    placeholder="Enter name"
+                    required
+                    #name="ngModel"
+                  />
+                  @if (name.invalid && (name.dirty || name.touched || isSubmitted)) {
+                  <div class="text-danger small mt-1">Name is required.</div>
+                  }
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label fw-bold">Mobile</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="mobile"
+                    [(ngModel)]="customerForm.mobile"
+                    placeholder="Enter mobile number"
+                    required
+                    pattern="[0-9]{10}"
+                    #mobile="ngModel"
+                  />
+                  @if (mobile.invalid && (mobile.dirty || mobile.touched || isSubmitted)) {
+                  <div class="text-danger small mt-1">
+                    @if (mobile?.errors?.['required']) {
+                    <div>Mobile is required.</div>
+                    } @if (mobile.errors?.['pattern']) {
+                    <div>Mobile must be 10 digits.</div>
+                    }
+                  </div>
+                  }
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label fw-bold">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addressModal"
+                    readonly
+                    placeholder="Address"
+                  />
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label fw-bold">Delivery Date</label>
+                  <input
+                    type="date"
+                    name="deliveryDate"
+                    class="form-control"
+                    required
+                    #deliveryDate="ngModel"
+                    [(ngModel)]="customerForm.deliveryDate"
+                  />
+                  @if (deliveryDate.invalid && (deliveryDate.dirty || deliveryDate.touched ||
+                  isSubmitted)) {
+                  <div class="text-danger small mt-1">Delivery date is required.</div>
+                  }
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label fw-bold">Order Receive Date</label>
+                  <input
+                    type="date"
+                    name="orderReceiveDate"
+                    class="form-control"
+                    required
+                    #orderReceiveDate="ngModel"
+                    [(ngModel)]="customerForm.orderReceiveDate"
+                  />
+                  @if (orderReceiveDate.invalid && (orderReceiveDate.dirty ||
+                  orderReceiveDate.touched || isSubmitted)) {
+                  <div class="text-danger small mt-1">Order receive date is required.</div>
+                  }
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label fw-bold">Employee</label>
+                  <select
+                    name="employee"
+                    id="employee"
+                    class="form-select"
+                    [(ngModel)]="customerForm.staffCode"
+                    required
+                    #employeeId="ngModel"
+                  >
+                    <option value="" disabled selected>Select Employee</option>
+                    @for (staff of staffsList(); track staff._id) {
+                    <option [value]="staff._id">
+                      {{ staff.name }}
+                    </option>
+                    }
+                  </select>
+                  @if (employeeId.invalid && (employeeId.dirty || employeeId.touched ||
+                  isSubmitted)) {
+                  <div class="text-danger small mt-1">Employee is required.</div>
+                  }
+                </div>
+
+                <hr class="my-4" />
+
+                <div>
+                  <div class="jewelry-boxes-container">
+                    <div class="boxes-wrapper d-flex align-items-stretch">
+                      @for (box of customerForm.carateBoxes; track `${$index}_box`; let i = $index)
+                      {
+                      <div class="jewelry-box">
+                        <div class="carat-label">
+                          @if (!box.isCustom) {
+                          <span class="carat-text">{{ box.name }}</span>
+                          } @else {
+                          <input
+                            type="text"
+                            class="form-control carat-input"
+                            name="name{{ i }}"
+                            [(ngModel)]="box.name"
+                            placeholder="Custom"
+                          />
+                          }
+                        </div>
+
+                        <div class="price-section">
+                          <div class="input-group">
+                            <span class="input-group-text">₹</span>
+                            <input
+                              type="number"
+                              class="form-control price-input"
+                              name="price{{ i }}"
+                              [(ngModel)]="box.price"
+                              min="0"
+                              placeholder="0"
+                            />
+                          </div>
+                        </div>
+
+                        @if (box.isCustom) {
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-danger remove-btn"
+                          title="Remove"
+                          (click)="removeBox(box.id)"
+                          data-enter-skip
+                        >
+                          <i class="bi bi-x"></i>
+                        </button>
+                        }
+                      </div>
+                      }
+
+                      <div class="jewelry-box add-new-box">
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary add-box-btn"
+                          title="Add New Box"
+                          data-enter-skip
+                          (click)="addNewBox()"
+                        >
+                          <i class="bi bi-plus-lg"></i>
+                          <span>Add New</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div>
+                  <div class="card border-light">
+                    <div class="card-body bg-light">
+                      <div class="row g-3 align-items-end">
+                        <div class="col-md-2">
+                          <label class="form-label fw-bold">Rate Status</label>
+                          <select
+                            class="form-select"
+                            name="rateFixed"
+                            [(ngModel)]="customerForm.rateFixed"
+                          >
+                            <option value="">Select Rate Status</option>
+                            <option value="fixed">ભાવ ફિક્સ કરેલ છે</option>
+                            <option value="notFixed">ભાવ ફિક્સ કરેલ નથી</option>
+                          </select>
+                        </div>
+                        @if (customerForm.rateFixed === 'fixed') {
+                        <div class="col-md-2">
+                          <label class="form-label fw-bold">Fixed Rate Date</label>
+                          <div class="input-group">
+                            <input
+                              type="date"
+                              class="form-control"
+                              name="fixedRateDate"
+                              [(ngModel)]="customerForm.fixedRateDate"
+                              #fixedRateDate="ngModel"
+                              placeholder="Select fixed rate date"
+                            />
+                          </div>
+                          @if (fixedRateDate.invalid && fixedRateDate.touched) {
+                          <div class="text-danger small mt-1">
+                            Fixed rate date is required when rate is fixed
+                          </div>
+                          }
+                        </div>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div>
+                  @for (advance of customerForm.advances; track `${$index}_advance`; let i = $index)
+                  {
+                  <div class="card mb-3 border-light">
+                    <div class="card-body bg-light">
+                      <div class="row g-3 align-items-end">
+                        <div class="col-md-2">
+                          <label class="form-label fw-bold">Amount</label>
+                          <div class="input-group">
+                            <span class="input-group-text">₹</span>
+                            <input
+                              type="number"
+                              class="form-control"
+                              min="0"
+                              name="amount{{ i }}"
+                              [(ngModel)]="advance.amount"
+                              placeholder="Enter advance amount"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <label class="form-label fw-bold">Date</label>
+                          <input
+                            type="date"
+                            class="form-control"
+                            name="advance_date{{ i }}"
+                            [(ngModel)]="advance.date"
+                          />
+                        </div>
+                        <div class="col-md-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-danger"
+                            (click)="removeAdvance(i)"
+                            data-enter-skip
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  }
+                  <div class="text-start">
+                    <button
+                      type="button"
+                      class="btn btn-outline-success"
+                      (click)="addAdvance()"
+                      data-enter-skip
+                    >
+                      <i class="bi bi-plus-circle me-1"></i>Add Advance
+                    </button>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <div class="mb-4">
+                  <div class="card border-light">
+                    <div class="card-header bg-light">
+                      <h5 class="card-title mb-0"><i class="bi bi-table me-2"></i>Order Items</h5>
+                    </div>
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table table-hover" formArrayName="items">
+                          <thead class="table-light">
+                            <tr>
+                              <th>Item Name & Code</th>
+                              <th>Size</th>
+                              <th>Carat/Purity</th>
+                              <th>Color</th>
+                              <th>Weight</th>
+                              <th>Worker Name</th>
+                              <th>Worker Issue Date</th>
+                              <th>Order Status</th>
+                              <th>Worker Receive Date</th>
+                              <th>Customer Delivery Date</th>
+                              <th>Note</th>
+                              <th>New Item Tag</th>
+                              <th>Image</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @for (item of customerForm.items; track `${$index}_item`; let i =
+                            $index) {
+                            <tr>
+                              <td>
+                                <select
+                                  name="itemCode{{ i }}"
+                                  id="itemCode{{ i }}"
+                                  class="form-select form-select-sm"
+                                  [(ngModel)]="item.itemCode"
+                                  required
+                                  #itemCodeId="ngModel"
+                                >
+                                  <option value="" disabled selected>Select Item</option>
+                                  @for (item of itemsList(); track `${$index}_item`) {
+                                  <option [value]="item.itemcode">
+                                    {{ item.itemcode }} - {{ item.name }}
+                                  </option>
+                                  }
+                                </select>
+                                @if (itemCodeId.invalid && (itemCodeId.dirty || itemCodeId.touched
+                                || isSubmitted)) {
+                                <div class="text-danger small mt-1">Item is required.</div>
+                                }
+                              </td>
+                              <td>
+                                <input
+                                  type="text"
+                                  class="form-control form-control-sm"
+                                  name="size{{ i }}"
+                                  [(ngModel)]="item.size"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  type="text"
+                                  class="form-control form-control-sm"
+                                  name="caratPurity{{ i }}"
+                                  [(ngModel)]="item.caratPurity"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  type="text"
+                                  class="form-control form-control-sm"
+                                  name="color{{ i }}"
+                                  [(ngModel)]="item.color"
+                                />
+                              </td>
+                              <td>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-secondary btn-sm"
+                                  data-bs-toggle="modal"
+                                  [attr.data-bs-target]="`#weightModal${i}`"
+                                >
+                                  <i class="bi bi-balance-scale"></i>
+                                  {{ item.weight.grWt || 0 }}g / {{ item.weight.pcs || 0 }}pcs
+                                </button>
+                              </td>
+                              <td>
+                                <input
+                                  type="text"
+                                  class="form-control form-control-sm"
+                                  name="workerName{{ i }}"
+                                  [(ngModel)]="item.workerName"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  type="date"
+                                  class="form-control form-control-sm"
+                                  name="workerIssueDate{{ i }}"
+                                  [(ngModel)]="item.workerIssueDate"
+                                />
+                              </td>
+                              <td>
+                                <select
+                                  class="form-select form-select-sm"
+                                  name="orderStatus{{ i }}"
+                                  [(ngModel)]="item.orderStatus"
+                                >
+                                  @for (status of orderStatusOptions; track `${$index}_status`) {
+                                  <option [value]="status.value">{{ status.label }}</option>
+                                  }
+                                </select>
+                              </td>
+                              <td>
+                                <input
+                                  type="date"
+                                  class="form-control form-control-sm"
+                                  name="workerReceiveDate{{ i }}"
+                                  [(ngModel)]="item.workerReceiveDate"
+                                />
+                              </td>
+                              <td>
+                                <input
+                                  type="date"
+                                  class="form-control form-control-sm"
+                                  name="customerDeliveryDate{{ i }}"
+                                  [(ngModel)]="item.customerDeliveryDate"
+                                />
+                              </td>
+                              <td>
+                                <textarea
+                                  class="form-control form-control-sm"
+                                  rows="1"
+                                  placeholder="Note"
+                                  name="note{{ i }}"
+                                  [(ngModel)]="item.note"
+                                ></textarea>
+                              </td>
+                              <td>
+                                <input
+                                  type="text"
+                                  class="form-control form-control-sm"
+                                  name="newItemTag{{ i }}"
+                                  [(ngModel)]="item.newItemTag"
+                                  placeholder="Tag"
+                                />
+                              </td>
+                              <td>
+                                <div class="file-upload-wrapper">
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    [multiple]="true"
+                                    class="d-none"
+                                    #fileInput
+                                    (change)="onItemImageChange($event, i)"
+                                    [id]="'fileInput' + i"
+                                  />
+                                  <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary mb-0 d-flex justify-content-center align-items-center gap-1"
+                                    title="Upload Images"
+                                    (click)="fileInput.click()"
+                                    style="cursor: pointer"
+                                  >
+                                    <i class="bi bi-upload"></i>
+                                  </button>
+                                </div>
+
+                                @if (item.imageUrls && item.imageUrls.length > 0) {
+                                <div class="d-flex flex-wrap gap-1 mt-1">
+                                  @for (imageUrl of item.imageUrls; track `${$index}_image`; let
+                                  imgIdx = $index) {
+                                  <div class="position-relative">
+                                    <img
+                                      [src]="imageUrl"
+                                      alt="Item Image"
+                                      width="40"
+                                      height="40"
+                                      style="cursor: pointer; object-fit: cover; border-radius: 4px"
+                                      data-enter-skip
+                                    />
+                                    <button
+                                      type="button"
+                                      class="btn btn-sm btn-outline-danger position-absolute top-0 end-0"
+                                      style="padding: 0px 4px; font-size: 10px; line-height: 1"
+                                      (click)="removeImage(i, imgIdx)"
+                                      title="Remove Image"
+                                      data-enter-skip
+                                    >
+                                      <i class="bi bi-x"></i>
+                                    </button>
+                                  </div>
+                                  }
+                                </div>
+                                }
+                              </td>
+                              <td>
+                                <button
+                                  type="button"
+                                  class="btn btn-sm btn-outline-danger"
+                                  (click)="removeItemRow(i)"
+                                  [disabled]="customerForm.items.length <= 1"
+                                  title="Remove Row"
+                                  data-enter-skip
+                                >
+                                  <i class="bi bi-trash"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            }
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="add-item-container">
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary add-item-btn"
+                          (click)="addItemRow()"
+                          data-enter-skip
+                        >
+                          <i class="bi bi-plus-circle me-1"></i>Add Item Row
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+              </div>
+            </div>
+
+            <div class="row justify-content-center gap-2 mt-4">
+              @if (customerId()) {
+              <button
+                type="button"
+                (click)="onSubmit(customerFormRef)"
+                class="btn btn-primary col col-md-2 col-sm-8"
+              >
+                <i class="bi bi-plus-circle me-2"></i>Update Customer
+              </button>
+              <button
+                type="button"
+                (click)="onDelete()"
+                class="btn btn-danger col col-md-2 col-sm-8"
+              >
+                <i class="bi bi-trash me-2"></i>Delete Customer
+              </button>
+              } @else {
+              <button
+                type="button"
+                (click)="onSubmit(customerFormRef)"
+                class="btn btn-primary col col-md-2 col-sm-8"
+              >
+                <i class="bi bi-plus-circle me-2"></i>Add Customer
+              </button>
+              }
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div
+  class="modal fade"
+  id="addressModal"
+  tabindex="-1"
+  aria-labelledby="addressModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" appEnterNav>
+      <div class="modal-header">
+        <h5 class="modal-title" id="addressModalLabel">
+          <i class="bi bi-geo-alt me-2"></i>Complete Address Details
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-12">
+            <label class="form-label fw-bold">Address Line 1</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="customerForm.address.address1"
+              placeholder="Street, Building, Apartment"
+              required
+              #address1="ngModel"
+            />
+            @if (address1.invalid && (address1.dirty || address1.touched || isSubmitted)) {
+            <div class="text-danger small mt-1">Address line 1 is required.</div>
+            }
+          </div>
+          <div class="col-12">
+            <label class="form-label fw-bold">Address Line 2</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="customerForm.address.address2"
+              placeholder="Area, Landmark (Optional)"
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-bold">City</label>
+            <input
+              #cityInput
+              type="text"
+              class="form-control"
+              [(ngModel)]="customerForm.address.city"
+              placeholder="City"
+              required
+              #city="ngModel"
+            />
+            @if (city.invalid && (city.dirty || city.touched || isSubmitted)) {
+            <div class="text-danger small mt-1">City is required.</div>
+            }
+          </div>
+          <div class="col-md-6">
+            <label class="form-label fw-bold">State</label>
+            <input
+              #stateInput
+              type="text"
+              class="form-control"
+              [(ngModel)]="customerForm.address.state"
+              placeholder="State"
+              required
+              #state="ngModel"
+            />
+            @if (state.invalid && (state.dirty || state.touched || isSubmitted)) {
+            <div class="text-danger small mt-1">State is required.</div>
+            }
+          </div>
+          <div class="col-12">
+            <label class="form-label fw-bold">Pincode</label>
+            <input
+              #pincodeInput
+              type="text"
+              class="form-control"
+              [(ngModel)]="customerForm.address.pincode"
+              placeholder="Pincode"
+              required
+              #pincode="ngModel"
+            />
+            @if (pincode.invalid && (pincode.dirty || pincode.touched || isSubmitted)) {
+            <div class="text-danger small mt-1">Pincode is required.</div>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-enter-skip>
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          <i class="bi bi-check-circle me-1"></i>Save Address
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@for (item of customerForm.items; track `${$index}_item_model`; let i = $index) {
+<div
+  class="modal fade"
+  id="weightModal{{ i }}"
+  tabindex="-1"
+  aria-labelledby="weightModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" appEnterNav>
+      <div class="modal-header">
+        <h5 class="modal-title" id="weightModalLabel">
+          <i class="bi bi-balance-scale me-2"></i>Enter Weight Details
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-4">
+            <label class="form-label fw-bold">P/W</label>
+            <select
+              class="form-select"
+              name="pw{{ i }}"
+              [(ngModel)]="item.weight.pw"
+              (ngModelChange)="calculateWeightValues(item.weight, i)"
+            >
+              <option value="P">P</option>
+              <option value="W">W</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-bold">GrWt</label>
+            <input
+              type="number"
+              class="form-control"
+              min="0"
+              name="grWt{{ i }}"
+              [(ngModel)]="item.weight.grWt"
+              (ngModelChange)="calculateWeightValues(item.weight, i)"
+            />
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-bold">Pcs</label>
+            <input
+              type="number"
+              class="form-control"
+              min="0"
+              name="pcs{{ i }}"
+              [(ngModel)]="item.weight.pcs"
+              (ngModelChange)="calculateWeightValues(item.weight, i)"
+            />
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-bold">PrRate</label>
+            <input
+              type="number"
+              class="form-control"
+              min="0"
+              name="prRate{{ i }}"
+              [(ngModel)]="item.weight.prRate"
+              (ngModelChange)="calculateWeightValues(item.weight, i)"
+            />
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-bold">PrAmt</label>
+            <input
+              type="number"
+              class="form-control"
+              min="0"
+              name="prAmt{{ i }}"
+              [(ngModel)]="item.weight.prAmt"
+              readonly
+            />
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-bold">Rate</label>
+            <input
+              type="number"
+              class="form-control"
+              name="rate{{ i }}"
+              [(ngModel)]="item.weight.rate"
+              (ngModelChange)="calculateWeightValues(item.weight, i)"
+              min="0"
+            />
+          </div>
+          <div class="col-4">
+            <label class="form-label fw-bold">ItmAmt</label>
+            <input
+              type="number"
+              class="form-control"
+              name="itmAmt{{ i }}"
+              [(ngModel)]="item.weight.itmAmt"
+              min="0"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-enter-skip>
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          <i class="bi bi-check-circle me-1"></i>Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,25 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between gap-2">
+    <div class="d-flex align-items-center gap-1 cursor-pointer" routerLink="/oms/dashboard">
+      <img src="profile-img.png" alt="Profile" class="rounded-circle me-2" style="width:32px;height:32px;" />
+      <span class="d-md-block fs-4">{{ user()?.name }}</span>
+    </div>
+    <div class="mt-1" appToggleSidebar (sidebarToggled)="onSidebarToggle($event)">
+      @if (isSidebarOpen()) {
+        <i class="bi bi-x fs-3 text-primary cursor-pointer"></i>
+      } @else {
+        <i class="bi bi-list fs-3 text-primary cursor-pointer"></i>
+      }
+    </div>
+  </div>
+
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item d-flex align-items-center pe-3">
+        <button class="btn btn-link ms-3" (click)="logout()" title="Sign Out">
+          <i class="bi bi-box-arrow-right fs-5"></i>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,55 @@
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card shadow-lg">
+        <div class="card-header">
+          <h5 class="card-title mb-0">
+            <i class="bi bi-person-plus me-2"></i>{{ getPrefix() }} Staff
+          </h5>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="staffForm" (ngSubmit)="formSubmit()">
+
+            <div class="mb-4">
+              <div class="card border-light">
+                <div class="card-body bg-light">
+                  <div class="row g-3">
+                    <div class="col-md-4 col-sm-12">
+                      <label for="inputName" class="form-label fw-bold">Full Name</label>
+                      <input type="text" class="form-control" id="inputName" formControlName="name" required />
+                      @if (staffForm.get('name')?.invalid && staffForm.get('name')?.touched) {
+                      <div class="text-danger small mt-1">Name is required.</div>
+                      }
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <label for="inputUsername" class="form-label fw-bold">Username</label>
+                      <input type="text" class="form-control" id="inputUsername" formControlName="username" required />
+                      @if (staffForm.get('username')?.invalid && staffForm.get('username')?.touched) {
+                      <div class="text-danger small mt-1">Username is required.</div>
+                      }
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <label for="inputUserCode" class="form-label fw-bold">User Code</label>
+                      <input type="text" class="form-control" id="inputUserCode" formControlName="userCode" required />
+                      @if (staffForm.get('userCode')?.invalid && staffForm.get('userCode')?.touched) {
+                      <div class="text-danger small mt-1">User Code is required.</div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-grid gap-2 col-2 mx-auto">
+              <button type="submit" class="btn btn-primary" [disabled]="staffForm.invalid">
+                <i class="bi bi-check-circle me-2"></i>{{ getPrefix() }} Staff
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
