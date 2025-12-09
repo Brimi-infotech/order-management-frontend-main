@@ -3,26 +3,26 @@
     @if (user?.role === 'staff') {
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/oms/customers-form']">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-grid text-white"></i>
           <span>Customers</span>
         </a>
       </li>
     } @else {
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/oms/dashboard']">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-grid text-white"></i>
           <span>Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/oms/staff']">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-grid text-white"></i>
           <span>Staffs</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/oms/items']">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-grid text-white"></i>
           <span>Items</span>
         </a>
       </li>

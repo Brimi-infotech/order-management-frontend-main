@@ -1,13 +1,16 @@
 <div class="container">
+  <div class="mt-5 d-flex align-items-center justify-content-center">
+    <img src="em-logo.png" alt="" height="100px" width="100px">
+  </div>
   <section
-    class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"
+    class="section register d-flex flex-column align-items-center justify-content-center pt-3"
   >
     <div class="container">
       <div class="row justify-content-center">
         <div
           class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center"
         >
-          <div class="d-flex justify-content-center py-4">
+          <div class="d-flex justify-content-center pb-4">
             <a
               [routerLink]="['/']"
               class="logo d-flex align-items-center w-auto"
@@ -18,7 +21,7 @@
 
           <div class="card mb-3">
             <div class="card-body">
-              <div class="pt-4 pb-2">
+              <div class="pb-2">
                 <h5 class="card-title text-center pb-0 fs-4">
                   Login to Your Account
                 </h5>
@@ -27,7 +30,7 @@
                 </p>
               </div>
 
-              <form class="row g-3 needs-validation" [formGroup]="loginForm">
+              <form class="row g-3 needs-validation pb-3" [formGroup]="loginForm">
                 <div class="col-12">
                   <label for="username" class="form-label">Username</label>
                   <input
@@ -61,7 +64,7 @@
 
                 <div class="col-12">
                   <button
-                    class="btn btn-primary w-100"
+                    class="btn log_in_btn w-100"
                     type="button"
                     (click)="loginSubmit()"
                   >

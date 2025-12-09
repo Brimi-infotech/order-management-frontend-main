@@ -74,7 +74,8 @@
 /* Status filter buttons */
 .btn.active {
   opacity: 1;
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  border: none;
+  box-shadow: 0 0 0 0.2rem rgba(154, 155, 155, 0.25);
 }
 
 /* Table sorting indicators */
@@ -128,4 +129,48 @@
 /* Clickable row cursor */
 tbody td[style*="cursor: pointer"] {
   transition: background-color 0.2s ease;
+}
+
+/* success Btn Gredient */
+.success_btn {
+  height: 45px;
+  width: 135px;
+  background: linear-gradient(165deg, #8fffaf -80.21%, #ffffff 90%);
+  border: 1px solid #8fffaf;
+}
+
+/* Pending Btn Gredient */
+.pending_btn {
+  height: 45px;
+  width: 135px;
+  background: linear-gradient(165deg, #ecff41 -80.21%, #ffffff 90%);
+  border: 1px solid #ecff41;
+}
+
+/* InProgress_btn Btn Gredient */
+.inProgress_btn {
+  height: 45px;
+  width: 135px;
+  background: linear-gradient(165deg, #7bdcfc -80.21%, #ffffff 90%);
+  border: 1px solid #7bdcfc;
+}
+
+/* Emergency Btn Gredient */
+.emergency_btn {
+  height: 45px;
+  width: 135px;
+  border: 1px solid #fc4a4a;
+  background: linear-gradient(165deg, #fc4a4a -80.21%, #ffffff 90%);
+}
+
+/* Add Customer Btn Gredient */
+.add_customer_btn {
+  color: white;  
+  height: 55px;
+  width: 200px;
+  font-size: 17px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 1px solid #0b0e69;
+  border-radius: 50px;
+  background: linear-gradient(165deg, #0b0e69 -10.21%, #ffffff 90%);
 }

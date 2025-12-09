@@ -606,7 +606,7 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #0c1526;
   left: -300px;
 }
 
@@ -647,6 +647,7 @@ h6 {
 .sidebar-nav {
   padding: 0;
   margin: 0;
+  padding-top: 22px !important;
   list-style: none;
 }
 
@@ -657,7 +658,7 @@ h6 {
 }
 
 .sidebar-nav .nav-item {
-  margin-bottom: 5px;
+  margin-bottom: 22px;
 }
 
 .sidebar-nav .nav-heading {
@@ -673,9 +674,9 @@ h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
+  color: white;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #1d2646;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -696,8 +697,12 @@ h6 {
 }
 
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
+  color: #1d2646;
   background: #f6f9ff;
+}
+
+.sidebar-nav .nav-link:hover .bi-grid{
+  color:#1d2646 !important;
 }
 
 .sidebar-nav .nav-link:hover i {
