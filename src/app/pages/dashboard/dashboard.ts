@@ -331,34 +331,18 @@ export class Dashboard implements OnInit {
     }
   }
 
-  shareOrder(customer: any, item: any): void {
+  shareOrder(customer: any, item: any, itemName: any): void {
     const orderDetails = {
       orderId: customer.orderId,
       customerName: customer.name,
-      itemName: item.itemName,
+      itemName: itemName,
       itemCode: item.itemCode,
       orderStatus: item.orderStatus,
     };
-
-    const shareText = `Order: ${orderDetails.orderId}\nCustomer: ${orderDetails.customerName}\nItem: ${orderDetails.itemName} (${orderDetails.itemCode})\nStatus: ${orderDetails.orderStatus}`;
-
-    if (navigator.share) {
-      navigator
-        .share({
-          title: 'Order Details',
-          text: shareText,
-        })
-        .catch((err) => console.log('Error sharing:', err));
-    } else {
-      navigator.clipboard
-        .writeText(shareText)
-        .then(() => {
-          this._toast.success('Order details copied to clipboard');
-        })
-        .catch(() => {
-          this._toast.error('Failed to copy order details');
-        });
-    }
+    const shareText = `Order: ${orderDetails.orderId}\n` + `Customer: ${orderDetails.customerName}\n` + `Item: ${orderDetails.itemName} (${orderDetails.itemCode})\n` + `Status: ${orderDetails.orderStatus}`;
+    const phoneNumber = customer.mobile?.replace(/\D/g, "") || "";
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(shareText)}`;
+    window.open(url, "_blank");
   }
 
   openChat(customer: any, item: any): void {

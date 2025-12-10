@@ -121,7 +121,7 @@
                       <td>
                         @if (row.item) {
                           <button class="btn btn-outline-primary btn-sm"
-                            (click)="shareOrder(row.customer, row.item)"
+                            (click)="shareOrder(row.customer, row.item, row.itemName)"
                             title="Share Order">
                             <i class="bi bi-share"></i>
                           </button>
